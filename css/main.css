@@ -30,13 +30,35 @@ header {
   align-items: center;
   padding: 50px 15px 15px;
 }
+.title {
+  color: #835507;
+  margin-bottom: 5px;
+}
+.outline {
+  color: #533a0f;
+  margin-bottom: 10px;
+}
+button {
+  padding: 10px 25px;
+  margin-left: 20px;
+  outline: none;
+  display: block;
+  margin: auto;
+  border: none;
+  color: #2c1e04;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  font-size: medium;
+  margin-top: 15px;
+  border-bottom: 3px solid #df8e00;
+}
+
 .display {
   margin-bottom: 2em;
   color: #721c24;
   background-color: #f8d7da;
   border-color: #f5c6cb;
   padding: 0.75rem 1.25rem;
-  /* margin-bottom: 1rem; */
   border: 1px solid transparent;
   border-radius: 0.25rem;
 }
@@ -44,12 +66,10 @@ header input {
   width: 100%;
   max-width: 280px;
   padding: 10px 15px;
-  border: none;
   outline: none;
   background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 16px 0px 16px 0px;
-  border-bottom: 3px solid #df8e00;
-
+  border-radius: 5px;
+  border: 1px solid #d3a351;
   color: #313131;
   font-size: 20px;
   font-weight: 300;
