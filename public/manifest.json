@@ -1,6 +1,6 @@
 {
-  "name": "Cloudycity",
-  "short_name": "Cloudycity",
+  "name": "cloudycity",
+  "short_name": " cloudycity",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#FFE9D2",
