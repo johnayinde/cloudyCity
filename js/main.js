@@ -1,6 +1,7 @@
 const storedLocation = JSON.parse(localStorage.getItem('weather'));
 const display = document.querySelector('.display');
 const wrap = document.querySelector('#main');
+const btn = document.querySelector('.btn');
 let searchbox = document.querySelector('.search-box');
 let city = document.querySelector('.location .city');
 let now = new Date();
@@ -15,18 +16,16 @@ const api = {
   base: "https://api.openweathermap.org/data/2.5/"
 }
 
-searchbox.addEventListener('keypress', setQuery);
+btn.addEventListener('click', query);
 
-function setQuery(evt) {
-  if (evt.keyCode == 13) {
-    getResults(searchbox.value);
-  }
+function query(evt) {
+  evt.preventDefault()
+  postData(searchbox.value);
 }
 
-function getResults(query) {
+function postData(query) {
   if (!query) {
     display.style.display = 'block'
-
     display.textContent = 'You must enter address in search box ';
     wrap.style.display = 'none';
     return;
@@ -34,16 +33,14 @@ function getResults(query) {
   fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
     .then(weather => {
       return weather.json();
-    }).then(displayResults)
+    }).then(showWeather)
 }
 
 
 let cityCountry, todayDate, cityTemp, elem, hilo;
-function displayResults(weather) {
-  console.log(weather);
+function showWeather(weather) {
   if (!weather.name) {
     display.style.display = 'block'
-
     display.textContent = 'Invalid city name,could not fetch weather Info';
     wrap.style.display = 'none';
     return;
@@ -95,7 +92,6 @@ function dateBuilder(d) {
 }
 
 if (storedLocation) {
-  console.log(storedLocation);
 
   searchbox.value = storedLocation.city;
   city.innerText = storedLocation.country;
